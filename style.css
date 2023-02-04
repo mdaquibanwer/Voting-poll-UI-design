@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #9a63f0;
+    font-family: 'Poppins', sans-serif;
+}
+.container{
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    max-width: 360px;
+    width: 100%;
+}
+.container header{
+    font-size: 22px;
+    font-weight: 600;
+}
+.container .card{
+    margin: 20px 0 10px;
+}
+.card label{
+    display: block;
+    border: 2px solid #e6e6e6;
+    border-radius: 5px;
+    padding: 8px 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+label.selected{
+    border-color: #9a63f0;
+}
+.card label .row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card .row .column{
+    display: flex;
+    align-items: center;
+}
+.row span{
+    font-size: 16px;
+    font-weight: 500;
+}
+.row .circle{
+    display:block;
+    position: relative;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
+label.selected .row .circle{
+    border-color: #9a63f0;
+}
+.row .circle::after{
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    display: none;
+    transition: all 0.3s ease;
+}
+label:hover .row .circle::after{
+    display: block;
+    background-color: #ccc;
+}
+label.selected .row .circle::after{
+    display: block;
+    background-color: #9a63f0;
+}
+.row .percent{
+    display: none;
+}
+label .progress{
+    position: relative;
+    height: 5px;
+    width: 100%;
+    background-color: #f1f1f1;
+    border-radius: 30px;
+    margin: 10px 0 3px;
+    display: none;
+    transition: all 0.3s ease;
+}
+label.selectAll :is(.percent,.progress){
+    display: block;
+}
+label .progress::after{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: calc(1% * var(--w));
+    background-color: #ccc;
+    border-radius: inherit;
+}
+label.selected .progress::after{
+    background-color: #9a63f0;
+
+}
